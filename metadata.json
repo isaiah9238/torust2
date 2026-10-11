@@ -1,0 +1,6 @@
+{
+  "name": "Toroidal Color Matrix",
+  "description": "7-Layer Parametric Transformation Engine calculating high-dimensional toroidal color manifolds, Riemannian metric tensors, OKLab chrominance, and real-time WebGL shaders.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

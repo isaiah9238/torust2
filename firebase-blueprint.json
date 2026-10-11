@@ -1,0 +1,184 @@
+{
+  "entities": {
+    "ToroidalMatrix": {
+      "title": "ToroidalMatrix",
+      "description": "Parametric state configuration of the 7-layer toroidal color manifold",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the configuration"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the owner"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Display name of the manifold configuration"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Analytical or aesthetic description"
+        },
+        "majorRadius": {
+          "type": "number",
+          "description": "Major radius R of the torus"
+        },
+        "minorRadius": {
+          "type": "number",
+          "description": "Minor radius r of the torus"
+        },
+        "radialSegments": {
+          "type": "number",
+          "description": "Discretization radial count"
+        },
+        "tubularSegments": {
+          "type": "number",
+          "description": "Discretization tubular count"
+        },
+        "isDynamic": {
+          "type": "boolean",
+          "description": "Whether temporal phase drift is enabled"
+        },
+        "symmetryFold": {
+          "type": "number",
+          "description": "Layer 4 harmonic fold coefficient"
+        },
+        "curvatureWeight": {
+          "type": "number",
+          "description": "Layer 2 curvature modulation intensity"
+        },
+        "driftSpeed": {
+          "type": "number",
+          "description": "Layer 5 hysteresis drift velocity"
+        },
+        "quantizationLevels": {
+          "type": "number",
+          "description": "Layer 7 fragment quantization steps"
+        },
+        "layerWeights": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "JSON string of 7-layer active states and weights"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation ISO date timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Update ISO date timestamp"
+        }
+      },
+      "required": ["id", "userId", "name", "majorRadius", "minorRadius", "symmetryFold", "createdAt"]
+    },
+    "TopologicalEvaluation": {
+      "title": "TopologicalEvaluation",
+      "description": "High-thinking AI topological and colorimetric evaluation record",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Evaluation record ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Requesting user ID"
+        },
+        "matrixName": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Matrix title inspected"
+        },
+        "modelUsed": {
+          "type": "string",
+          "description": "Gemini model identifier"
+        },
+        "query": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Inspection query submitted"
+        },
+        "analysisText": {
+          "type": "string",
+          "maxLength": 10000,
+          "description": "Mathematical synthesis and colorimetric diagnosis"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp string"
+        }
+      },
+      "required": ["id", "userId", "modelUsed", "analysisText", "createdAt"]
+    },
+    "ForecastRecord": {
+      "title": "ForecastRecord",
+      "description": "Saved dynamical phase drift and chromatic trajectory forecast simulation",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Forecast record ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Requesting user ID"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Forecast run name"
+        },
+        "horizonSeconds": {
+          "type": "number",
+          "description": "Projected forward time span in seconds"
+        },
+        "recurrencePeriod": {
+          "type": "number",
+          "description": "Calculated Poincaré recurrence period"
+        },
+        "probedU": {
+          "type": "number",
+          "description": "Probed major angle coordinate u"
+        },
+        "probedV": {
+          "type": "number",
+          "description": "Probed minor angle coordinate v"
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 5000,
+          "description": "Mathematical forecast analysis text"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp string"
+        }
+      },
+      "required": ["id", "userId", "title", "horizonSeconds", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/matrices/{matrixId}": {
+      "schema": {
+        "$ref": "#/entities/ToroidalMatrix"
+      },
+      "description": "Collection of user-configured toroidal color matrices"
+    },
+    "/evaluations/{evalId}": {
+      "schema": {
+        "$ref": "#/entities/TopologicalEvaluation"
+      },
+      "description": "Collection of high-thinking manifold analyses"
+    },
+    "/forecasts/{forecastId}": {
+      "schema": {
+        "$ref": "#/entities/ForecastRecord"
+      },
+      "description": "Collection of phase drift and trajectory forecasts"
+    }
+  }
+}
